@@ -1,0 +1,66 @@
+#Example image based on cuda image
+Bootstrap: docker
+From: jupyter/minimal-notebook
+
+# %environment
+#     # Exporting variables needed
+#     # export LC_ALL=C
+#     CONDA_Path=/opt/conda/bin/
+#     PATH=$CONDA_Path:$PATH
+
+#     export PATH
+
+# # %runscript
+# #     source /conda/etc/profile.d/conda.sh
+    
+
+# #      echo "Starting notebook..."
+# #      echo "Open browser to localhost:8888"
+# #     #  exec /opt/conda/bin/jupyter notebook --notebook-dir=/opt/notebooks --ip='*' --port=8888 --no-browser --allow-root
+    
+
+# %post
+#     CONDA_Path=/opt/conda/bin/
+#     PATH=$CONDA_Path:$PATH
+
+#     export PATH
+
+#     # conda update conda
+
+#     # source /conda/etc/profile.d/conda.sh
+#     conda create -n py36 python=3.6 ipykernel -y
+
+#     eval "$(/opt/conda/bin/conda shell.bash hook)"
+
+#     # source /conda/etc/profile.d/conda.sh
+#     conda init bash
+    
+
+#     conda activate py36
+#     # conda install -c anaconda ipykernel
+#     python -m ipykernel install --user --name=py36
+
+#     # /opt/conda/bin/conda activate py36
+#     # pip install jupyterlab
+
+#     # /opt/conda/bin/conda 
+
+#     # #List installed packages
+#     # /opt/conda/bin/conda list
+
+#     # #List installed environments
+#     # /opt/conda/bin/conda env list
+
+
+#     # DEBIAN_FRONTEND=noninteractive apt-get update -y
+#     # DEBIAN_FRONTEND=noninteractive apt install libffi-dev python-dev build-essential git -y
+#     # DEBIAN_FRONTEND=noninteractive apt install python3 -y
+#     # DEBIAN_FRONTEND=noninteractive apt install python3-opencv -y
+#     # DEBIAN_FRONTEND=noninteractive apt install python3-pip -y
+#     # DEBIAN_FRONTEND=noninteractive apt install python3-lmdb -y
+#     # DEBIAN_FRONTEND=noninteractive apt install python3-imageio -y
+#     # DEBIAN_FRONTEND=noninteractive apt install python3-venv -y
+
+#     # After installing python-pip you can also install via pip
+#     # pip install scikit-image imageio
+#     # sudo singularity build TDM.sif envs/cuda.def

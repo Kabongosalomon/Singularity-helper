@@ -1,0 +1,16 @@
+#Example image based on cuda image
+Bootstrap: docker
+From: nvidia/cuda:11.1-cudnn8-devel-ubuntu18.04
+
+%post
+    DEBIAN_FRONTEND=noninteractive apt-get update -y
+    DEBIAN_FRONTEND=noninteractive apt install libffi-dev python-dev build-essential git -y
+    DEBIAN_FRONTEND=noninteractive apt install python-opencv -y
+    DEBIAN_FRONTEND=noninteractive apt install python3-pip -y
+    DEBIAN_FRONTEND=noninteractive apt install python3-lmdb -y
+    DEBIAN_FRONTEND=noninteractive apt install python3-imageio -y
+    DEBIAN_FRONTEND=noninteractive apt install python3-venv -y
+    DEBIAN_FRONTEND=noninteractive apt install default-jdk -y
+
+    # After installing python-pip you can also install via pip
+    # pip install torch

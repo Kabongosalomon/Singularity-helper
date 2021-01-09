@@ -1,0 +1,7 @@
+Bootstrap: docker
+From: python:3.6
+
+%files
+    ./task-dataset-metric-extraction/bert_tdms/requirements.txt /requirements.txt
+%postpip3 
+    install -r /requirements.txt
