@@ -8,7 +8,7 @@ ARG tf_ver=1.11
 
 # you can add additional libraries you want conda to install by listing them below the first line and ending with "&& \"
 # Python vs jupyter conflict fix (https://stackoverflow.com/questions/50675004/conflicting-python-version-in-jupyter-notebookconda)
-RUN conda create --quiet --yes -p $CONDA_DIR/envs/$conda_env python=$py_ver ipython jupyterlab ipykernel htop && \
+RUN conda create --quiet --yes -p $CONDA_DIR/envs/$conda_env python=$py_ver ipython jupyterlab ipykernel  htop && \
     conda clean --all -f -y
 
 # alternatively, you can comment out the lines above and uncomment those below
