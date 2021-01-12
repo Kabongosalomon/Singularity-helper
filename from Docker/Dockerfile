@@ -2,13 +2,13 @@
 FROM jupyter/minimal-notebook:latest
 
 # name your environment and choose python 3.x version
-ARG conda_env=python36
-ARG py_ver=3.6
-ARG tf_ver=1.11
+ARG conda_env=python36_9
+ARG py_ver=3.6.9
+ARG tf_ver=1.11.0
 
 # you can add additional libraries you want conda to install by listing them below the first line and ending with "&& \"
 # Python vs jupyter conflict fix (https://stackoverflow.com/questions/50675004/conflicting-python-version-in-jupyter-notebookconda)
-RUN conda create --quiet --yes -p $CONDA_DIR/envs/$conda_env python=$py_ver ipython jupyterlab ipykernel htop && \
+RUN conda create --quiet --yes -p $CONDA_DIR/envs/$conda_env python=$py_ver ipython jupyterlab ipykernel htop&& \
     conda clean --all -f -y
 
 # alternatively, you can comment out the lines above and uncomment those below
@@ -26,7 +26,7 @@ RUN $CONDA_DIR/envs/${conda_env}/bin/python -m ipykernel install --user --name=$
     fix-permissions /home/$NB_USER
 
 # any additional pip installs can be added by uncommenting the following line
-# RUN $CONDA_DIR/envs/${conda_env}/bin/pip install tensorflow==$tf_ver
+RUN $CONDA_DIR/envs/${conda_env}/bin/pip install tensorflow==${tf_ver} tensorflow-gpu==${tf_ver}
 
 # prepend conda environment to path
 ENV PATH $CONDA_DIR/envs/${conda_env}/bin:$PATH
@@ -34,7 +34,7 @@ ENV PATH $CONDA_DIR/envs/${conda_env}/bin:$PATH
 # if you want this environment to be the default one, uncomment the following line:
 ENV CONDA_DEFAULT_ENV ${conda_env}
 
-# # Install additional software 
+# # Install additional software but not working because of permissions 
 # RUN apt-get install -y \
 #     htop \
 #     vim \
