@@ -4,6 +4,7 @@ To produice a valid .sif you need to make the following .sif
 - docker build -f Dockerfile . -t lab
 - docker save -o lab.tar lab
 - singularity build lab.sif docker-archive:///home/salomon/lab.tar
+    - singularity build lab.sif docker-archive:///home/salomon/Singularity-helper/from\ Docker/lab.tar 
 
 ## Examples usage
 - singularity exec lab.sif python
